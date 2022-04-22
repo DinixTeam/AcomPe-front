@@ -15,7 +15,6 @@ const Login  = () =>{
                 />
             </form>
         </div>
-        
     )
 }
 
