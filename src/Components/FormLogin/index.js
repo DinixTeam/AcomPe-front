@@ -11,6 +11,10 @@ const FormLogin = () => {
     const linkCadastro = () => {
         history.push('/cadastro');
     }
+    const linkHome = () => {
+        history.push('/home');
+    }
+    
     return(
         <div>
             <Image src={logo}/>
@@ -31,7 +35,7 @@ const FormLogin = () => {
                     onClick={linkCadastro}>
                         Não tenho Cadastro
                     </div>
-                    <Button>Entrar</Button>
+                    <Button onClick={linkHome}>Entrar</Button>
             </Form>
         </div>
     );

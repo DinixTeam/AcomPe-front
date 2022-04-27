@@ -5,7 +5,6 @@ const Cadastro = () => {
         <div>
             bsdjb
         </div>
-
     )
 }
 

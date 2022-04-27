@@ -16,7 +16,8 @@ export const Form = styled.div`
 `;
 
 export const Image = styled.img`
-    margin-top: -300px;
+    margin-top: -30vh;
+    
 `;
 
 export const Button = styled.div`
