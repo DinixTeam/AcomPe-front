@@ -1,19 +1,22 @@
 import React from "react";
 import Login from "./Pages/Login"
 import Cadastro from "./Pages/Cadastro"
+import TelaInicial from "./Pages/TelaInicial";
 
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Routes = () => {
   
   
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route  path="/" component={Login} />
-          <Route path="/cadastro" component={Cadastro} />
+      <Router >
+      <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path={"/cadastro"} component={Cadastro} />
+          <Route path={"/home"} component={TelaInicial} />
         </Switch>
-      </BrowserRouter>
+      </Router>
+       
     );
   };
   

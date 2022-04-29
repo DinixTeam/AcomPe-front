@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-const Login  = () =>{
+const Cadastro  = () =>{
     return(
         <div class = "form-container">
             <form class = "register-form">
                 <input 
-                    id="cpf"
-                    placeholder="Cpf do Paciente"
+                    id="Email"
+                    placeholder="Email"
+                />
+                <input
+                    id="usermane"
+                    placeholder="Nome de Usuário"                
                 />
                 <input
                     id="senha"
