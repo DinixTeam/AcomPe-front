@@ -16,6 +16,7 @@ const Login  = () =>{
         </div>
     )
 }
+
 export const Container = styled.div`
     background: #7897da;
     display: flex;

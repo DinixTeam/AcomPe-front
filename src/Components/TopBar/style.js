@@ -7,7 +7,8 @@ export const Container = styled.div`
     place-items: center;
     justify-content: space-between;
     position: initial;
-    
+    border-bottom: 2px solid #7ea1ed;
+
     width: 100%;
 `;
 
