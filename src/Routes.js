@@ -18,7 +18,7 @@ const Routes = () => {
           <Route path={"/home"} component={TelaInicial} />
         </Switch>
       </Router>
-       
+
     );
   };
   

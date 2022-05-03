@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Image, Button, Input, Container } from './style';
 import logo from '../../Assets/logo.png'
 import moment from 'moment';
 
 import { useHistory } from "react-router-dom";
-import { IconButton, Select } from '@mui/material';
+import { style } from '@mui/system';
+
+// var MySelect = React.createClass({
+//     getInitialState: function () {
+//         return {
+//             value: "0"
+//         };
+//     },
+
+//     handleChange: function (event) {
+//         var value = event.target.value;
+//         console.log(value, " was selected");
+//         this.setState({ value: event.target.value });
+//     },
+
+//     render: function () {
+//         return (
+//             <select value={this.state.value} onChange={this.handleChange} style={{ width: '20vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px' }}>
+//                 <option value="0">Choose your option</option>
+//                 <option value="1">Option 1</option>
+//                 <option value="2">Option 2</option>
+//                 <option value="3">Option 3</option>
+//             </select>
+//         );
+//     }
+// })
+
+// React.render(
+//     <MySelect />, document.body
+// );
 
 const AddPacient = () => {
 
@@ -16,11 +45,13 @@ const AddPacient = () => {
     const linkHome = () => {
         history.push('/');
     }
-    const sexos = [
-        { label: 'machu', value: 'Machu' },
-        { label: 'Fêma', value: 'Fêma' },
-        { label: 'Tony', value: 'Tony' },
-      ];
+    // const sexos = [
+    //     { label: 'machu', value: 'Machu' },
+    //     { label: 'Fêma', value: 'Fêma' },
+    //     { label: 'Tony', value: 'Tony' },
+    // ];
+
+    const [sexos, setEstado] = useState(0);
 
     return (
         <Container>
@@ -40,10 +71,14 @@ const AddPacient = () => {
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Input>
                         <h2>Sexo</h2>
-                        <Select
-                            style={{ width: '20vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px'}}
-                            options = {sexos}
-                        />
+                        <select style={{ width: '20vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px' }}
+                             name='sexos' value={sexos} onChange={texto => setEstado(texto.target.value)
+                        }>
+                            <option value="">Selecione</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Tony</option>
+                        </select>
                     </Input>
                     <Input>
                         <h2> Data de nascimento</h2>
