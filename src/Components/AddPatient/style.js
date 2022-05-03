@@ -15,7 +15,7 @@ export const Form = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30vw;
+    width: 100%;
 
     min-height: 350px;
     background-color: #7897da;
@@ -30,13 +30,14 @@ export const Image = styled.img`
 `;
 
 export const Button = styled.div`
-    background-color: #ECCFF9;
+    background-color: #D190EE;
     padding: 10px;
     margin-bottom: 10px;
-    width: 50%;
+    width: 4vw;
+    height: 4vw;
     text-align: center;
     display: flex;
-    border-radius: 10px;
+    border-radius: 50%;
     border: 1px solid transparent;
     justify-content: center;
     font-weight: bold;
@@ -63,8 +64,12 @@ export const Input = styled.div`
         background: #ECCFF9;
         border-radius: 15px;
         height: 45px;
-        width: 20vw;
+        width: 40vw;
         padding: 10px;
         border: 1px solid #C2D2CA;
+    }
+
+    select {
+        
     }
 `;
