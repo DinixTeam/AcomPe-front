@@ -3,6 +3,7 @@ import TopBar from "../../Components/TopBar";
 import MenuClient from "../../Components/MenuClient";
 import Grafico from "../../Components/Graficos";
 import { Grid } from "./style";
+import Consulta from "../../Components/Consulta";
 
 const TelaInicial = () => {
     return(
@@ -10,6 +11,7 @@ const TelaInicial = () => {
             <TopBar />
             <MenuClient />
             <Grafico />
+            <Consulta />
          </Grid>
     )
 }
