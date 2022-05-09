@@ -12,8 +12,8 @@ const Routes = () => {
     return (
       <Router >
       <Switch>
-          <Route exact path="/" component={AddPaciente} />
-          {/* <Route exact path="/" component={Login} /> */}
+          {/* <Route exact path="/" component={AddPaciente} /> */}
+          <Route exact path="/" component={Login} />
           <Route path={"/cadastro"} component={Cadastro} />
           <Route path={"/home"} component={TelaInicial} />
         </Switch>

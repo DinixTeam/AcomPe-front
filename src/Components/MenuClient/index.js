@@ -65,7 +65,12 @@ const MenuClient = () => {
                         </h1>
                     </Paciente>
                     </div>
-            
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                        <button>
+                            Adicionar Paciente +
+                        </button>
+                    </div>
+                    
         </Container>
     )
 }

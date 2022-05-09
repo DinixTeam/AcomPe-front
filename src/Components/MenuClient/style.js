@@ -3,6 +3,19 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: ME;
     background-color: #7698DB;
+
+    button {
+        position: fixed;
+        margin-top: 10px;
+        background-color: var(--secondary);
+        border: none;
+        color: white;
+        height: 40px;
+        width: 190px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1.3vw;
+    }
 `;
 
 export const Input = styled.div`
