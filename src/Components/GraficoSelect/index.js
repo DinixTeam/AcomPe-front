@@ -43,7 +43,7 @@ const GraficoSelect = () => {
 
     return (
         <div>
-            <select style={{ width: '26vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px' }}
+            <select style={{ width: '26vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px', marginLeft: '165px', marginTop: '100px'}}
                 name='sexos' value={sexos} onChange={texto => setEstado(texto.target.value)
                 }>
                 <option value="">Gráfico de Peso para Idade de 0 a 2 Anos</option>
