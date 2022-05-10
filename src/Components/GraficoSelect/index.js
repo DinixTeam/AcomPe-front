@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 import { useEffect, useState } from "react";
 
-import { Container } from './style';
+import { Container, Paciente } from './style';
 
 import { useHistory } from "react-router-dom";
 import PCefalico from '../Graficos/pCefalico';
@@ -13,11 +13,9 @@ const GraficoSelect = () => {
 
     const history = useHistory();
 
-    const linkAddPaciente = () => {
-        history.push('/addPaciente');
-    }
+    
     const linkHome = () => {
-        history.push('/');
+        history.goBack();
     }
 
     // const [car, setCar] = useState("selectDreamCar");
@@ -42,7 +40,21 @@ const GraficoSelect = () => {
 
 
     return (
-        <div>
+        <Container>
+            <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    marginTop: '20px',
+                    marginBottom: '20px'
+                }}>
+                    <Paciente>
+                        <img />
+                        <h1>
+                            sjadfhjdsfhua
+                        </h1>
+                    </Paciente>
+                    </div>
             <select style={{ width: '26vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px' }}
                 name='sexos' value={sexos} onChange={texto => setEstado(texto.target.value)
                 }>
@@ -55,7 +67,10 @@ const GraficoSelect = () => {
         {comIdade_ContentVisible && <ComIdade />}
         {imc_ContentVisible && <Imc />}
         {pCefalico_ContentVisible && <PCefalico />}
-        </div>
+            <button onClick={linkHome}>
+                Voltar para prontuario
+            </button>
+        </Container>
     );
 }
 

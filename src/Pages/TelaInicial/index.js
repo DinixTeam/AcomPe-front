@@ -11,7 +11,7 @@ const TelaInicial = () => {
          <Grid>
             <TopBar />
             <MenuClient />
-            <GraficoSelect />
+            {/* <GraficoSelect /> */}
             {/* <Grafico /> */}
             <Consulta />
          </Grid>
