@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Chart from "react-google-charts";
 
 
-const Grafico = () => {
+const PesoIdade = () => {
 
   const data = [
     ['idade', 'peso'],
-    ['2', 3.4],
-    ['4', 6.2],
-    ['6', 10.2],
-    ['8', 11.8],
-    ['10', 13.0],
+    ['2', 4.4],
+    ['4', 5.2],
+    ['6', 5.2],
+    ['8', 5.8],
+    ['10', 5.9],
   ];
 
   return (
@@ -43,4 +43,4 @@ const Grafico = () => {
 
 
 
-export default Grafico;
+export default PesoIdade;

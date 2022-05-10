@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Chart from "react-google-charts";
 
 
-const Grafico = () => {
+const ComIdade = () => {
 
   const data = [
     ['idade', 'peso'],
-    ['2', 3.4],
-    ['4', 6.2],
-    ['6', 10.2],
-    ['8', 11.8],
-    ['10', 13.0],
+    ['2', 6],
+    ['4', 7],
+    ['6', 8],
+    ['8', 10],
+    ['10', 12.0],
   ];
 
   return (
@@ -24,14 +24,14 @@ const Grafico = () => {
         options={{
           pointSize: 5,
           lineWidth: 0,
-          title: 'Gráfico de Peso para Idade de 0 a 2 Anos',
+          title: 'Gráfico de Comprimento para Idade de 0 a 2 Anos',
           chartArea: { width: '50%' },
           hAxis: {
             title: 'Idade(meses e anos completos)',
             minValue: 0,
           },
           vAxis: {
-            title: 'Peso(kg)',
+            title: 'Comprimento (cm)',
           },
         }}
         rootProps={{ 'data-testid': '1' }}
@@ -43,4 +43,4 @@ const Grafico = () => {
 
 
 
-export default Grafico;
+export default ComIdade;

@@ -6,35 +6,6 @@ import moment from 'moment';
 import { useHistory } from "react-router-dom";
 import { style } from '@mui/system';
 
-// var MySelect = React.createClass({
-//     getInitialState: function () {
-//         return {
-//             value: "0"
-//         };
-//     },
-
-//     handleChange: function (event) {
-//         var value = event.target.value;
-//         console.log(value, " was selected");
-//         this.setState({ value: event.target.value });
-//     },
-
-//     render: function () {
-//         return (
-//             <select value={this.state.value} onChange={this.handleChange} style={{ width: '20vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px' }}>
-//                 <option value="0">Choose your option</option>
-//                 <option value="1">Option 1</option>
-//                 <option value="2">Option 2</option>
-//                 <option value="3">Option 3</option>
-//             </select>
-//         );
-//     }
-// })
-
-// React.render(
-//     <MySelect />, document.body
-// );
-
 const AddPacient = () => {
 
     const history = useHistory();

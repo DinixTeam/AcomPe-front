@@ -4,13 +4,15 @@ import MenuClient from "../../Components/MenuClient";
 import Grafico from "../../Components/Graficos";
 import { Grid } from "./style";
 import Consulta from "../../Components/Consulta";
+import GraficoSelect from "../../Components/GraficoSelect";
 
 const TelaInicial = () => {
     return(
          <Grid>
             <TopBar />
             <MenuClient />
-            <Grafico />
+            <GraficoSelect />
+            {/* <Grafico /> */}
             <Consulta />
          </Grid>
     )

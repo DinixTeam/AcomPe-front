@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Chart from "react-google-charts";
 
 
-const Grafico = () => {
+const Imc = () => {
 
   const data = [
     ['idade', 'peso'],
@@ -24,14 +24,14 @@ const Grafico = () => {
         options={{
           pointSize: 5,
           lineWidth: 0,
-          title: 'Gráfico de Peso para Idade de 0 a 2 Anos',
+          title: 'Gráfico de IMC para Idade de 0 a 2 Anos',
           chartArea: { width: '50%' },
           hAxis: {
             title: 'Idade(meses e anos completos)',
             minValue: 0,
           },
           vAxis: {
-            title: 'Peso(kg)',
+            title: 'IMC (kg/m)',
           },
         }}
         rootProps={{ 'data-testid': '1' }}
@@ -43,4 +43,4 @@ const Grafico = () => {
 
 
 
-export default Grafico;
+export default Imc;
