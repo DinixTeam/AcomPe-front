@@ -7,7 +7,7 @@ export const Container = styled.div`
     button {
         position: fixed;
         margin-top: 10px;
-        background-color: var(--secondary);
+        background-color: #D190EE;
         border: none;
         color: white;
         height: 40px;

@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-    grid-area: CS;
+    grid-area: AP;
     width: '20vw'; 
-    background: '#ECCFF9';
+    /* background: '#ECCFF9'; */
+    background-color: '#7698DB';
     border-radius: '15px';
     height: '47px';
     display: flex;

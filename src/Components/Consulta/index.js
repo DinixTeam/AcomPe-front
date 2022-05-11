@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -11,14 +12,20 @@ import Prontuario from '../Prontuario';
 const Consulta = () => {
     const [valuee, setValuee] = useState(10);
 
+   
+
     const handleChange = (event) => {
         setValuee(event.target.value);
       };
+      const history = useHistory();
+      const linkGraficos = () => {
+        history.push('/graficos');
+    }
     
     return(
         <Container>
             <div style={{width: '80%', marginTop: '20px', marginLeft: '10%', marginBottom: '20px'}}>
-                <FormControl fullWidth style={{background: '#d69af0', borderRadius:'10px'}}>
+                <FormControl fullWidth style={{background: '#d69af0', borderRadius:'10px',}}>
                     <InputLabel id="demo-simple-select-label">Consulta</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -45,7 +52,7 @@ const Consulta = () => {
                 <button>
                 Adicionar Consulta
                  </button>
-                 <button>
+                 <button onClick={linkGraficos}>
                 Ver Graficos
                  </button>
                 </div>
