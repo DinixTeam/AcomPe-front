@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Image, Button, Input } from './style';
 import logo from '../../Assets/logo.png'
 
 import { useHistory } from "react-router-dom";
-import http from '../../Services/httpRquest';
+import http from '../../Services/httpRequest';
+import { idUser, login, logout } from '../../Services/auth';
+import  { Context } from "../../Context/contextAPI";
 
 const FormLogin = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    var { loga, auth, desloga }   = useContext(Context);
 
     const history = useHistory();
 
@@ -16,7 +19,7 @@ const FormLogin = () => {
     }
     
     
-    const login = () => {
+    const loginUser = () => {
         const body = {
             emailOrCPF: email,
             password: password
@@ -26,8 +29,12 @@ const FormLogin = () => {
             http
             .post('/login', body)
             .then((res) => {
+                logout()
                 console.log(res)
                 console.log('go')
+                login(res.data.token);
+                idUser(res.data._id);
+                loga();
                 history.push('/home');
             })
             .catch((err) => {
@@ -67,7 +74,7 @@ const FormLogin = () => {
                     onClick={linkCadastro}>
                         Não tenho Cadastro
                     </div>
-                    <Button onClick={login}>Entrar</Button>
+                    <Button onClick={loginUser}>Entrar</Button>
             </Form>
         </div>
     );

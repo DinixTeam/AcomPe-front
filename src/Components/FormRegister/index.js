@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Image, Button, Input } from './style';
 import logo from '../../Assets/logo.png'
-import http from '../../Services/httpRquest'
+import http from '../../Services/httpRequest'
 
 import { useHistory } from "react-router-dom";
 

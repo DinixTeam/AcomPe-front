@@ -1,6 +1,8 @@
-import React from 'react';
-import { Container, Input, Paciente } from './style';
+import React, { useEffect, useState } from 'react';
+import { ButtonAdd, Container, Input, Paciente } from './style';
 import { useHistory } from "react-router-dom";
+import http from '../../Services/httpRequest';
+import { getId } from '../../Services/auth';
 
 const MenuClient = () => {
 
@@ -10,75 +12,37 @@ const MenuClient = () => {
         history.push('/addPaciente');
     }
 
-    return(
-     
+    const [patient, setPatient] = useState([]);
 
+    useEffect(() => { 
+        (async () => {
+          const response = await http.get(`/pediatra/readpatients/${getId()}`);
+          console.log(response.data);
+          setPatient(response.data);
+        })();
+      }, []);
+
+    return(
         <Container>
             <Input>
                 <input 
                 placeholder='Buscar Paciente'
                     />
                     </Input>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '20px'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
+                    {patient.map((item, key)=> (
+                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '20px'}}>
+                            <Paciente>
+                                <img />
+                                <h1>
+                                    {item.name}
+                                </h1>
+                            </Paciente>
+                        </div>
+                    ))}
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                    <Paciente>
-                        <img />
-                        <h1>
-                            sjadfhjdsfhua
-                        </h1>
-                    </Paciente>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-                        <button onClick={linkAddPaciente}>
+                        <ButtonAdd onClick={linkAddPaciente}>
                             Adicionar Paciente +
-                        </button>
+                        </ButtonAdd>
                     </div>
                     
         </Container>
