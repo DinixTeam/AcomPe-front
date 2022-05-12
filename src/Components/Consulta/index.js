@@ -21,7 +21,7 @@ const Consulta = () => {
       const linkGraficos = () => {
         history.push('/graficos');
     }
-    
+        
     return(
         <Container>
             <div style={{width: '80%', marginTop: '20px', marginLeft: '10%', marginBottom: '20px'}}>
