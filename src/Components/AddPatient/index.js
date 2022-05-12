@@ -44,27 +44,27 @@ const AddPacient = () => {
             pediatraID: getId()
         }
         console.log(body)
-        if(body.name !== ''
-             && body.parentName !== "" 
-                && body.phone !== '' 
-                    && body.cpf !== '' 
-                        && body.rg !== '' 
-                            && body.bornDate !== '' 
-                                && body.sex !== ''){
+        if (body.name !== ''
+            && body.parentName !== ""
+            && body.phone !== ''
+            && body.cpf !== ''
+            && body.rg !== ''
+            && body.bornDate !== ''
+            && body.sex !== '') {
             http
-            .post('/patient', body)
-            .then((res) => {
-                console.log(res)
-                console.log('go')
-                history.push('/home');
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
+                .post('/patient', body)
+                .then((res) => {
+                    console.log(res)
+                    console.log('go')
+                    history.push('/home');
+                })
+                .catch((err) => {
+                    console.log(err.response)
+                })
         } else {
             console.log('erro')
         }
-        
+
     }
 
 
@@ -85,18 +85,18 @@ const AddPacient = () => {
                 <Input>
                     <h2>Nome do responsável</h2>
                     <input
-                    onChange={e => setNomeResponsavel(e.target.value)}
-                    placeholder="Nome do Responsável"
-                    type="text"
-                    value={nomeResponsavel}
+                        onChange={e => setNomeResponsavel(e.target.value)}
+                        placeholder="Nome do Responsável"
+                        type="text"
+                        value={nomeResponsavel}
                     />
                 </Input>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Input>
                         <h2>Sexo</h2>
                         <select style={{ width: '20vw', backgroundColor: '#ECCFF9', borderRadius: '15px', height: '47px', padding: '10px', border: 'none' }}
-                             name='sexos' value={sexos} onChange={texto => setEstado(texto.target.value)
-                        }>
+                            name='sexos' value={sexos} onChange={texto => setEstado(texto.target.value)
+                            }>
                             <option value="">Selecione</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminio">Feminino</option>
@@ -146,7 +146,7 @@ const AddPacient = () => {
                     />
                 </Input>
                 <Button
-                    onClick={register} style={{color: 'white', fontSize: '2.5vw'}}>+
+                    onClick={register} style={{ color: 'white', fontSize: '2.5vw' }}>+
                 </Button>
             </Form>
         </Container>

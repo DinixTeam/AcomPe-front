@@ -17,7 +17,7 @@ export const Form = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-
+    margin-left: 100px;
     min-height: 350px;
     background-color: #7897da;
     margin: auto;

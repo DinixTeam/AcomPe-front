@@ -4,6 +4,8 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import moment from 'moment';
+
 
 import { useHistory } from "react-router-dom";
 
@@ -98,6 +100,14 @@ const PrimeiroMes = () => {
         <Container>
             <Form>
                 <h1 style={{ marginBottom: '4px', color: 'white' }}>Adicionar Consulta</h1>
+                <Input>
+                    <h2> Data</h2>
+                    <input
+                        type='date'
+                        max={moment().format("YYYY-MM-DD")}
+                        style={{ marginLeft: '10px', width: '19.5vw' }}
+                    />
+                </Input>
                 <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '300px' }}>Medidas </h1>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '20px', marginLeft: '210px', width: '550px' }}>
                     <Input>

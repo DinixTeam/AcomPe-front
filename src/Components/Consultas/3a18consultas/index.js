@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Container, Input } from './style';
+import moment from 'moment';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -98,6 +99,14 @@ const ConsultasRestantes = () => {
         <Container>
             <Form>
                 <h1 style={{ marginBottom: '4px', color: 'white' }}>Adicionar Consulta</h1>
+                <Input>
+                    <h2> Data</h2>
+                    <input
+                        type='date'
+                        max={moment().format("YYYY-MM-DD")}
+                        style={{ marginLeft: '10px', width: '19.5vw' }}
+                    />
+                </Input>
                 <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '300px' }}>Medidas </h1>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '20px', marginLeft: '210px', width: '550px' }}>
                     <Input>
@@ -140,7 +149,7 @@ const ConsultasRestantes = () => {
                     <FormControlLabel control={<Checkbox checked={cocheck} onChange={handlecoracaozinho} />} />
                 </div>
                 {coracaozinho} */}
-                 <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '50px' }}>Aleitamento/alimentação </h1>
+                <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '50px' }}>Aleitamento/alimentação </h1>
                 <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between', marginLeft: '110px', width: '450px' }}>
                     <h2 style={{ marginRight: '20px', marginTop: '10px', color: 'white', fontSize: '15px', marginLeft: '7px' }}>Leite materno exclusivo (LME)</h2>
                     <FormControlLabel control={<Checkbox />} />
