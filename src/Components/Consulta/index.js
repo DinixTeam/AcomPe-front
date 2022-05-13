@@ -21,6 +21,10 @@ const Consulta = () => {
       const linkGraficos = () => {
         history.push('/graficos');
     }
+
+    const linkConsulta = () => {
+        history.push('/addConsulta');
+    }
         
     return(
         <Container>
@@ -49,7 +53,7 @@ const Consulta = () => {
                     marginLeft: '10%',
                     marginRight: '10%'
                         }}>
-                <button>
+                <button onClick={linkConsulta}>
                 Adicionar Consulta
                  </button>
                  <button onClick={linkGraficos}>
