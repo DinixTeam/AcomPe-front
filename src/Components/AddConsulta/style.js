@@ -11,4 +11,18 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    button{
+        background-color: #d69af0;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border: none;
+        width: 200px;
+        height: 50px;
+        border-radius: 20px;
+        color: white;
+        font-size: 1vw;
+        font-weight: bold;
+        cursor: pointer;
+    }
 `;

@@ -29,7 +29,7 @@ const GraficoSelect = () => {
 
 
     return (
-        <Container style={{background: '#7698db'}}>
+        <Container style={{ background: '#7698db' }}>
 
             <div style={{ width: '80%', marginTop: '20px', marginLeft: '10%', marginBottom: '20px' }}>
                 <FormControl fullWidth style={{ background: '#d69af0', borderRadius: '10px', }}>
@@ -47,8 +47,15 @@ const GraficoSelect = () => {
             </div>
             {valuee === "1" ? <Primeira /> : null}
             {valuee === "2" ? <PrimeiroMes /> : null}
-            {valuee === "3"? <ConsultasRestantes /> : null} 
-
+            {valuee === "3" ? <ConsultasRestantes /> : null}
+            <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between'}}>
+                <button onClick={linkHome}>
+                    Voltar para prontuario
+                </button>
+                <button onClick={linkHome} style={{marginLeft:'20px'}}>
+                    Confirmar
+                </button>
+            </div>
         </Container>
     );
 }
