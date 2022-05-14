@@ -16,13 +16,15 @@ export const Container = styled.div`
         background-color: #d69af0;
         margin-top: 50px;
         margin-bottom: 50px;
+        margin-left: 50px;
         border: none;
         width: 200px;
-        height: 50px;
+        height: 40px;
         border-radius: 20px;
         color: white;
-        font-size: 1vw;
+        font-size: 2.7vh;
         font-weight: bold;
         cursor: pointer;
+        
     }
 `;

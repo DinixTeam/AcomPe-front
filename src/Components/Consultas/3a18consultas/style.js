@@ -5,10 +5,13 @@ export const Container = styled.div`
     /* grid-area: AP; */
     background-color: var(--primary);
     display: flex;
+    flex-direction: column;
     place-items: center;
     justify-content: space-between;
     position: initial;    
     width: 100%;
+
+   
 `;
 
 export const Form = styled.div`

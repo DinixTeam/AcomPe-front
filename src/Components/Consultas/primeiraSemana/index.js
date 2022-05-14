@@ -32,7 +32,12 @@ const Primeira = () => {
     const [hepatiteB, setHepatiteB] = useState(false);
     const [bcg, setBcg] = useState(false);
     const [leiteLME, setLeiteLME] = useState(false);
-    const [leiteLMLA, setLeiteLMLA] = useState(false)
+    const [leiteLMLA, setLeiteLMLA] = useState(false);
+
+    const linkHome = () => {
+        history.goBack();
+    }
+
 
     console.log(amamentar)
     const addConsulta = () => {
@@ -284,9 +289,15 @@ const Primeira = () => {
                 </div>
 
             </Form>
-            <button onClick={addConsulta}>
-                confirmar
+            
+            <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between'}}>
+                <button onClick={linkHome}>
+                    Voltar para prontuario
+                </button>
+                <button onClick={addConsulta}>
+                Confirmar
             </button>
+            </div>
         </Container>
     );
 }

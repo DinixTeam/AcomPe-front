@@ -48,14 +48,6 @@ const GraficoSelect = () => {
             {valuee === "1" ? <Primeira /> : null}
             {valuee === "2" ? <PrimeiroMes /> : null}
             {valuee === "3" ? <ConsultasRestantes /> : null}
-            <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between'}}>
-                <button onClick={linkHome}>
-                    Voltar para prontuario
-                </button>
-                <button onClick={linkHome} style={{marginLeft:'20px'}}>
-                    Confirmar
-                </button>
-            </div>
         </Container>
     );
 }

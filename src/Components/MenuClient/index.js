@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ButtonAdd, Container, Input, Paciente } from './style';
 import { useHistory } from "react-router-dom";
 import http from '../../Services/httpRequest';
-import { getId } from '../../Services/auth';
+import { getId, idPatient } from '../../Services/auth';
 
 const MenuClient = () => {
 
@@ -22,6 +22,10 @@ const MenuClient = () => {
         })();
       }, []);
 
+      const clickPatient = (id) => {
+          idPatient(id)
+      }
+
     return(
         <Container>
             <Input>
@@ -30,7 +34,14 @@ const MenuClient = () => {
                     />
                     </Input>
                     {patient.map((item, key)=> (
-                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '20px'}}>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            marginTop: '20px',
+                            cursor: 'pointer'
+                        }} 
+                            onClick={clickPatient(item._id)}>
                             <Paciente>
                                 <img />
                                 <h1>

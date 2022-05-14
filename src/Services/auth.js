@@ -1,27 +1,37 @@
-const TOKEN_KEY = "ludus-token";
-const  id_key  =  "ludus-id" ;
+const TOKENKEY = "acompe-token";
+const  idkey  =  "acompe-id" ;
+const id_patient = "acompe-patient"
 
 export const isAuthenticated = () => {
-    return localStorage.getItem(TOKEN_KEY) !== null;
+    return localStorage.getItem(TOKENKEY) !== null;
   };
 
   export const getToken = () => {
-    return localStorage.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKENKEY);
   }
 
   export const login = (token) => {
-    localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(TOKENKEY, token);
   };
 
   export  const  idUser  =  ( id )  =>  {
-    localStorage.setItem ( id_key ,  id ) ;
+    localStorage.setItem ( idkey ,  id ) ;
+  }
+
+  export  const  idPatient  =  ( id )  =>  {
+    localStorage.setItem ( id_patient ,  id ) ;
   }
   
   export  const  getId  =  ()  =>  {
-    return localStorage.getItem ( id_key ) ;
+    return localStorage.getItem ( idkey ) ;
+  }
+  export  const  getIdPatient  =  ()  =>  {
+    return localStorage.getItem ( id_patient ) ;
   }
 
+
   export  const  logout  =  ( )  =>  {
-    localStorage.removeItem ( TOKEN_KEY ) ;
-    localStorage.removeItem ( id_key ) ;
+    localStorage.removeItem ( TOKENKEY ) ;
+    localStorage.removeItem ( idkey ) ;
+    localStorage.removeItem ( id_patient ) ;
   } 

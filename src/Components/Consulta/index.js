@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 
 import Box from '@mui/material/Box';
@@ -8,16 +8,27 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Container } from './style';
 import Prontuario from '../Prontuario';
+import http from '../../Services/httpRequest';
+import { getIdPatient } from '../../Services/auth';
 
 const Consulta = () => {
     const [valuee, setValuee] = useState(10);
+    const [consultas, setConsultas] = useState([])
+    const history = useHistory();
 
-   
+    useEffect(() => { 
+        (async () => {
+          const response = await http.get(`/consulta/frompatient/${getIdPatient()}`);
+          console.log(response.data.consults);
+          setConsultas(response.data.consults);
+        })();
+      }, []);
 
+    
     const handleChange = (event) => {
         setValuee(event.target.value);
       };
-      const history = useHistory();
+     
       const linkGraficos = () => {
         history.push('/graficos');
     }
@@ -39,8 +50,14 @@ const Consulta = () => {
                         onChange={handleChange}
                     >
                         <MenuItem value={10}>1º Consulta</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={20}>2º Consulta</MenuItem>
+                            {consultas.map((item, index) => {
+                            return(
+                                <MenuItem value={index}>{index + 3}º Consulta</MenuItem>
+                            )
+                        })}
+                       
+                       
                     </Select>
             </FormControl>
             </div>
