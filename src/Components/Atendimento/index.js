@@ -10,8 +10,8 @@ const Atendimento = () => {
     useEffect(() => { 
         (async () => {
           const response = await http.get(`/atendimento/frompatient/${getIdPatient()}`); 
-          console.log(response.data.atendimento);
-          setatendimento(response.data.atendimento);
+          console.log(response.data);
+          setatendimento(response.data);
         })();
       }, []);
 
