@@ -22,7 +22,7 @@ const Routes = () => {
       return <h1>loading</h1>
     }
     if(!auth && isPrivate){
-      return <Redirect to="/login" />
+      return <Redirect to="/" />
     }
     return <Route {...rest} />
   }
@@ -32,10 +32,10 @@ const Routes = () => {
       <Switch>
           <Route exact path="/" component={Login} /> 
           <Route path={"/cadastro"} component={Cadastro} />
-          <PrivateRoute path="/graficos" component={Grafico} />
-          <PrivateRoute path={"/home"} component={TelaInicial} />
-          <PrivateRoute path="/addConsulta" component={AddConsulta} />
-          <PrivateRoute path="/addPaciente" component={Paciente} />
+          <PrivateRoute isPrivate path="/graficos" component={Grafico} />
+          <PrivateRoute isPrivate path={"/home"} component={TelaInicial} />
+          <PrivateRoute isPrivate path="/addConsulta" component={AddConsulta} />
+          <PrivateRoute isPrivate path="/addPaciente" component={Paciente} />
         </Switch>
       </Router>
 

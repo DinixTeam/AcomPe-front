@@ -32,7 +32,7 @@ const FormLogin = () => {
             .then((res) => {
                 console.log(res)
                 console.log('go')
-                history.push('/cadastro');
+                history.push('/login');
             })
             .catch((err) => {
                 console.log(err.response)

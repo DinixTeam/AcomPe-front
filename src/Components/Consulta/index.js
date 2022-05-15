@@ -72,12 +72,22 @@ const Consulta = () => {
                 marginLeft: '10%',
                 marginRight: '10%'
             }}>
-                <button onClick={linkConsulta}>
-                    Adicionar Consulta
-                </button>
-                <button onClick={linkGraficos}>
-                    Ver Graficos
-                </button>
+                {/* {valuee === 10 ? <Prontuario /> : null} */}
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginTop: '100px',
+                    marginLeft: '10%',
+                    marginRight: '10%'
+                }}>
+                    <button onClick={linkConsulta}>
+                        Adicionar Consulta
+                    </button>
+                    <button onClick={linkGraficos}>
+                        Ver Graficos
+                    </button>
+                </div>
             </div>
         </Container>
     )
