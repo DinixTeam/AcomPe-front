@@ -61,7 +61,7 @@ const Consulta = () => {
                     </Select>
             </FormControl>
             </div>
-            {/* {valuee === 10 ? <Prontuario /> : null} */}
+            {valuee === 10 ? <Prontuario /> : null}
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',

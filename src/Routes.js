@@ -5,6 +5,7 @@ import Grafico from "./Pages/Graficos"
 import AddConsulta from "./Pages/AddConsulta";
 import Login from "./Pages/Login";
 import Paciente from "./Pages/AddPaciente"
+import Consulta from "./Pages/Consultas"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -36,6 +37,7 @@ const Routes = () => {
           <PrivateRoute isPrivate path={"/home"} component={TelaInicial} />
           <PrivateRoute isPrivate path="/addConsulta" component={AddConsulta} />
           <PrivateRoute isPrivate path="/addPaciente" component={Paciente} />
+          <PrivateRoute isPrivate path="/consultas" component={Consulta} />
         </Switch>
       </Router>
 

@@ -29,8 +29,12 @@ export const isAuthenticated = () => {
     return localStorage.getItem ( id_patient ) ;
   }
 
+  export const removerPatient = () => {
+    localStorage.removeItem ( id_patient ) ;
+  }
 
-  export  const  logout  =  ( )  =>  {
+
+  export  const  logout  =  ()  =>  {
     localStorage.removeItem ( TOKENKEY ) ;
     localStorage.removeItem ( idkey ) ;
     localStorage.removeItem ( id_patient ) ;

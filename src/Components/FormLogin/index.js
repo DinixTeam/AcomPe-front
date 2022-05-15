@@ -4,7 +4,7 @@ import logo from '../../Assets/logo.png'
 
 import { useHistory } from "react-router-dom";
 import http from '../../Services/httpRequest';
-import { idUser, login, logout } from '../../Services/auth';
+import { getId, idUser, login, logout } from '../../Services/auth';
 import  { Context } from "../../Context/contextAPI";
 
 const FormLogin = () => {
@@ -34,6 +34,8 @@ const FormLogin = () => {
                 console.log('go')
                 login(res.data.token);
                 idUser(res.data._id);
+                console.log(res.data._id);
+                console.log(getId())
                 loga();
                 history.push('/home');
             })

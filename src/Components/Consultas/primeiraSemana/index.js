@@ -8,7 +8,7 @@ import moment from 'moment';
 import FormLabel from '@mui/material/FormLabel';
 
 import { useHistory } from "react-router-dom";
-import { getId } from '../../../Services/auth';
+import { getId, getIdPatient } from '../../../Services/auth';
 import http from '../../../Services/httpRequest';
 
 const Primeira = () => {
@@ -59,7 +59,7 @@ const Primeira = () => {
             auscultaCardiaca: ausculta,
             hepatiteB: hepatiteB,
             bcg: bcg,
-            patientID: "627bbcf25e4cb048aa2d0c05",
+            patientID: getIdPatient(),
             pediatraID: getId(),
         }
         console.log(body)
@@ -80,15 +80,6 @@ const Primeira = () => {
         <Container>
             <Form>
                 <h1 style={{ marginBottom: '4px', color: 'white' }}>Adicionar Consulta</h1>
-                <Input>
-                    <h2> Data</h2>
-                    <input
-                        type='date'
-                        max={moment().format("YYYY-MM-DD")}
-                        style={{ marginLeft: '10px', width: '19.5vw' }}
-                        onChange={e => setDataConsulta(e.target.value)}
-                    />
-                </Input>
                 <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '300px' }}>Medidas </h1>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '20px', marginLeft: '210px', width: '550px' }}>
                     <Input>
