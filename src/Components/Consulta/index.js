@@ -6,13 +6,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Container } from './style';
+import { ButtonAdd, Container } from './style';
 import Prontuario from '../Prontuario';
 import Atendimento from '../Atendimento'
 import http from '../../Services/httpRequest';
 import { getIdPatient } from '../../Services/auth';
 import useSWR from 'swr';
 import RestoConsultas from '../RestoConsultas';
+import { Button } from '@mui/material';
 
 
 const useFetch = (url) => {
@@ -89,14 +90,7 @@ const Consulta = () => {
             {valuee === 1 ? <Prontuario /> : null}
             {valuee === 2 ? <Atendimento /> : null}
             {valuee > 2  ? <RestoConsultas consulta={valuee}/> : null}
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: '100px',
-                marginLeft: '10%',
-                marginRight: '10%'
-            }}>
+          
                 {/* {valuee === 10 ? <Prontuario /> : null} */}
                 <div style={{
                     display: 'flex',
@@ -106,14 +100,14 @@ const Consulta = () => {
                     marginLeft: '10%',
                     marginRight: '10%'
                 }}>
-                    <button onClick={linkConsulta}>
+                    <ButtonAdd onClick={linkConsulta}>
                         Adicionar Consulta
-                    </button>
-                    <button onClick={linkGraficos}>
+                    </ButtonAdd>
+                    <ButtonAdd onClick={linkGraficos} style={{marginLeft: '40%', marginRight: '10px'}}>
                         Ver Graficos
-                    </button>
+                    </ButtonAdd>
                 </div>
-            </div>
+          
         </Container>
     )
 }

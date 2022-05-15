@@ -22,10 +22,7 @@ const MenuClient = () => {
         })();
       }, []);
 
-      const clickPatient = (id) => {
-        
-      }
-
+   
       const click = () => {
         history.push('/consultas');
       }

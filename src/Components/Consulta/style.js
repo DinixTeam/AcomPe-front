@@ -5,8 +5,11 @@ export const Container = styled.div`
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #7698DB;
     height: 100%;
 
-    button{
-        display: flex;
+  
+`;
+
+export const ButtonAdd = styled.div`
+    display: flex;
     position:fixed;
     border: 1px solid transparent;
     padding: 1px 5px;
@@ -39,8 +42,6 @@ export const Container = styled.div`
         grid-template-columns: repeat(1, 1fr);
         width: 30%;
         font-size: 1.8vw;
-        right: 0;
-    }
     }
 `;
 

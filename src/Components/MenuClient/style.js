@@ -100,6 +100,5 @@ export const ButtonAdd = styled.div`
         grid-template-columns: repeat(1, 1fr);
         width: 30%;
         font-size: 1.8vw;
-        right: 0;
     }
 `;
