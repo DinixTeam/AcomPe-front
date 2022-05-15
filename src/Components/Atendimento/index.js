@@ -3,17 +3,22 @@ import { getIdPatient } from '../../Services/auth';
 import http from '../../Services/httpRequest';
 import { Container } from './style';
 
+import useSWR from 'swr';
+
+const useFetch = (url) => {
+    const { data, error, mutate } = useSWR(url, async url => {
+      const response = await http.get(url);
+  
+      return response.data;
+    })
+  
+    return { data, error, mutate }
+  
+  }
+  
 
 const Atendimento = () => {
-    const [atendimento, setatendimento] = useState([]);
-
-    useEffect(() => { 
-        (async () => {
-          const response = await http.get(`/atendimento/frompatient/${getIdPatient()}`); 
-          console.log(response.data);
-          setatendimento(response.data);
-        })();
-      }, []);
+    
 
       const [patient, setPatient] = useState([]);
 
@@ -24,6 +29,10 @@ const Atendimento = () => {
           setPatient(response.data);
         })();
       }, []);
+
+      const { data, mutate } = useFetch(`/atendimento/frompatient/${getIdPatient()}`);
+
+      if (!data) return null;
 
     return(
 
@@ -41,73 +50,73 @@ const Atendimento = () => {
                 Sexo: {patient.sex}
             </h1>
             <h1>
-                Consulta de 1 mês - {atendimento.date}
+                Consulta de 1 mês - {data.date}
             </h1>
             <h1 style={{fontSize:'20px', marginBottom: '10px'}}>
                 Medidas: 
 
                 <p>
-                    Perímetro Cefálico (cm): {atendimento.perimetroCefalico} cm
+                    Perímetro Cefálico (cm): {data.perimetroCefalico} cm
                 </p>
                 <p>
-                    Comprimento (cm): {atendimento.comprimento} cm
+                    Comprimento (cm): {data.comprimento} cm
                 </p>
                 <p>
-                    Peso (KG): {atendimento.peso} KG
+                    Peso (KG): {data.peso} KG
                 </p>
             </h1>
             <h1>
             Aleitamento/alimentação:
                 <p>
-                    Leite materno exclusivo (LME) : {atendimento.leiteLME ? "Sim" : "Não"}
+                    Leite materno exclusivo (LME) : {data.leiteLME ? "Sim" : "Não"}
                 </p>
                 <p>
-                Leite materno e leite artificial (LM+LA) : {atendimento.leiteLMLA ? "Sim" : "Não"}
+                Leite materno e leite artificial (LM+LA) : {data.leiteLMLA ? "Sim" : "Não"}
                 </p>
                 <p>
-                Dificuldades para amamentar ? : {atendimento.dificuldadeAmamentar ? "Sim" : "Não"}
+                Dificuldades para amamentar ? : {data.dificuldadeAmamentar ? "Sim" : "Não"}
                 </p>
                 <p>
-                Parou de amamentar ? : {atendimento.parouAmamentar ? "Sim" : "Não"}
+                Parou de amamentar ? : {data.parouAmamentar ? "Sim" : "Não"}
                 </p>
             </h1>
             <h1>
             Sinais de alerta:
                 <p>
-                    Coto umbilical infectado : {atendimento.cotoUmbilical ? "Sim" : "Não"}
+                    Coto umbilical infectado : {data.cotoUmbilical ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Icterícia : {atendimento.inctericia ? "Sim" : "Não"}
+                    Icterícia : {data.inctericia ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Diarreia/Vômitos : {atendimento.diarreiaVomito ? "Sim" : "Não"}
+                    Diarreia/Vômitos : {data.diarreiaVomito ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Dificuldades de respirar : {atendimento.dificuldadeRespirar ? "Sim" : "Não"}
+                    Dificuldades de respirar : {data.dificuldadeRespirar ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Febre (≥37,5°C) : {atendimento.febre ? "Sim" : "Não"}
+                    Febre (≥37,5°C) : {data.febre ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Hipotermia (+36,5°C) : {atendimento.hipotermia ? "Sim" : "Não"}
+                    Hipotermia (+36,5°C) : {data.hipotermia ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Convulsões ou movimentos anormais : {atendimento.convulsoesOuMovAnor ? "Sim" : "Não"}
+                    Convulsões ou movimentos anormais : {data.convulsoesOuMovAnor ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Ausculta cardíaca alterada/Cianose : {atendimento.auscultaCardiaca ? "Sim" : "Não"}
+                    Ausculta cardíaca alterada/Cianose : {data.auscultaCardiaca ? "Sim" : "Não"}
                 </p>
             </h1>
             <h1>
                 Exame Ocular:
                 <p>
-                    Abertura ocular normal : {atendimento.aberturaOcular ? "Sim" : "Não"}
+                    Abertura ocular normal : {data.aberturaOcular ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Pupilas normais : {atendimento.pupilasNormais ? "Sim" : "Não"}
+                    Pupilas normais : {data.pupilasNormais ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Estrabismo : {atendimento.estrabismo ? "Sim" : "Não"}
+                    Estrabismo : {data.estrabismo ? "Sim" : "Não"}
                 </p>
             </h1>
         </Container>

@@ -11,21 +11,42 @@ import Prontuario from '../Prontuario';
 import Atendimento from '../Atendimento'
 import http from '../../Services/httpRequest';
 import { getIdPatient } from '../../Services/auth';
+import useSWR from 'swr';
+import RestoConsultas from '../RestoConsultas';
+
+
+const useFetch = (url) => {
+    const { data, error, mutate } = useSWR(url, async url => {
+      const response = await http.get(url);
+  
+      return response.data;
+    })
+  
+    return { data, error, mutate }
+  
+  }
+  
+
 
 const Consulta = () => {
-    const [valuee, setValuee] = useState(10);
-    const [consultas, setConsultas] = useState([])
+    const [valuee, setValuee] = useState(0);
     const history = useHistory();
+    const [consu, setConsu] = useState([]);
 
-    useEffect(() => {
+    const [patient, setPatient] = useState([]);
+
+    useEffect(() => { 
         (async () => {
-            const response = await http.get(`/consulta/frompatient/${getIdPatient()}`);
-            console.log(response.data.consults);
-            setConsultas(response.data.consults);
+          const response = await http.get(`/consulta/frompatient/${getIdPatient()}`);
+          console.log(response.data.consults);
+          setConsu(response.data.consults);
         })();
-    }, []);
+      }, []);
 
+    
 
+ 
+  
     const handleChange = (event) => {
         setValuee(event.target.value);
     };
@@ -38,8 +59,11 @@ const Consulta = () => {
         history.push('/addConsulta');
     }
 
+    console.log(valuee)
+
     return (
         <Container>
+            
             <div style={{ width: '80%', marginTop: '20px', marginLeft: '10%', marginBottom: '20px' }}>
                 <FormControl fullWidth style={{ background: '#d69af0', borderRadius: '10px', }}>
                     <InputLabel id="demo-simple-select-label">Consulta</InputLabel>
@@ -50,11 +74,11 @@ const Consulta = () => {
                         label="Age"
                         onChange={handleChange}
                     >
-                        <MenuItem value={10}>1º Consulta</MenuItem>
-                        <MenuItem value={20}>Consulta do 1º mês</MenuItem>
-                        {consultas.map((item, index) => {
+                        <MenuItem value={1}>1º Consulta</MenuItem>
+                        <MenuItem value={2}>Consulta do 1º mês</MenuItem>
+                        {consu.map((item, index) => {
                             return (
-                                <MenuItem value={index}>{index + 3}º Consulta</MenuItem>
+                                 <MenuItem value={item.consulta} >{item.consulta}º Consulta</MenuItem>  
                             )
                         })}
 
@@ -62,9 +86,9 @@ const Consulta = () => {
                     </Select>
                 </FormControl>
             </div>
-<<<<<<< HEAD
-            {/* {valuee === 10 ? <Prontuario /> : null} */}
-            {valuee === 20 ? <Atendimento /> : null}
+            {valuee === 1 ? <Prontuario /> : null}
+            {valuee === 2 ? <Atendimento /> : null}
+            {valuee > 2  ? <RestoConsultas consulta={valuee}/> : null}
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -74,9 +98,6 @@ const Consulta = () => {
                 marginRight: '10%'
             }}>
                 {/* {valuee === 10 ? <Prontuario /> : null} */}
-=======
-            {valuee === 10 ? <Prontuario /> : null}
->>>>>>> bb857615176be17e49d0969342de5fa2321329bc
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',

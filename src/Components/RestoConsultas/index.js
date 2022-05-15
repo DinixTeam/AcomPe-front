@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getIdPatient } from '../../Services/auth';
 import http from '../../Services/httpRequest';
-import Consulta from '../Consulta';
 import { Container } from './style';
-import useSWR from 'swr';
 
+import useSWR from 'swr';
 
 const useFetch = (url) => {
     const { data, error, mutate } = useSWR(url, async url => {
@@ -18,7 +17,7 @@ const useFetch = (url) => {
   }
   
 
-const Prontuario = () => {
+const RestoConsultas = ({consulta}) => {
     
 
       const [patient, setPatient] = useState([]);
@@ -30,12 +29,13 @@ const Prontuario = () => {
           setPatient(response.data);
         })();
       }, []);
-    
-      const { data, mutate } = useFetch(`/caderneta/frompatient/${getIdPatient()}`);
+
+      console.log(consulta)
+      
+
+      const { data, mutate } = useFetch(`/consulta/findOne/${getIdPatient()}/${consulta}`);
 
       if (!data) return null;
-
-      const caderneta = data;
 
     return(
 
@@ -52,78 +52,82 @@ const Prontuario = () => {
             <h1>
                 Sexo: {patient.sex}
             </h1>
-           
+            {data ?
+             <div>
                 <h1>
-                Primeira consulta - {caderneta.date}
+                Consulta de 1 mês - {data.date}
             </h1>
             <h1 style={{fontSize:'20px', marginBottom: '10px'}}>
                 Medidas: 
 
                 <p>
-                    Perímetro Cefálico (cm): {caderneta.perimetroCefalico} cm
+                    Perímetro Cefálico (cm): {data.perimetroCefalico} cm
                 </p>
                 <p>
-                    Comprimento (cm): {caderneta.comprimento} cm
+                    Comprimento (cm): {data.comprimento} cm
                 </p>
                 <p>
-                    Peso (KG): {caderneta.peso} KG
+                    Peso (KG): {data.peso} KG
                 </p>
             </h1>
             <h1>
             Aleitamento/alimentação:
                 <p>
-                    Leite materno exclusivo (LME) : {caderneta.leiteLME ? "Sim" : "Não"}
+                    Leite materno exclusivo (LME) : {data.leiteLME ? "Sim" : "Não"}
                 </p>
                 <p>
-                Leite materno e leite artificial (LM+LA) : {caderneta.leiteLMLA ? "Sim" : "Não"}
+                Leite materno e leite artificial (LM+LA) : {data.leiteLMLA ? "Sim" : "Não"}
                 </p>
                 <p>
-                Dificuldades para amamentar ? : {caderneta.dificuldadeAmamentar ? "Sim" : "Não"}
+                Dificuldades para amamentar ? : {data.dificuldadeAmamentar ? "Sim" : "Não"}
                 </p>
                 <p>
-                Parou de amamentar ? : {caderneta.parouAmamentar ? "Sim" : "Não"}
+                Parou de amamentar ? : {data.parouAmamentar ? "Sim" : "Não"}
                 </p>
             </h1>
             <h1>
             Sinais de alerta:
                 <p>
-                    Coto umbilical infectado : {caderneta.cotoUmbilical ? "Sim" : "Não"}
+                    Coto umbilical infectado : {data.cotoUmbilical ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Icterícia : {caderneta.inctericia ? "Sim" : "Não"}
+                    Icterícia : {data.inctericia ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Diarreia/Vômitos : {caderneta.diarreiaVomito ? "Sim" : "Não"}
+                    Diarreia/Vômitos : {data.diarreiaVomito ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Dificuldades de respirar : {caderneta.dificuldadeRespirar ? "Sim" : "Não"}
+                    Dificuldades de respirar : {data.dificuldadeRespirar ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Febre (≥37,5°C) : {caderneta.febre ? "Sim" : "Não"}
+                    Febre (≥37,5°C) : {data.febre ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Hipotermia (+36,5°C) : {caderneta.hipotermia ? "Sim" : "Não"}
+                    Hipotermia (+36,5°C) : {data.hipotermia ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Convulsões ou movimentos anormais : {caderneta.convulsoesOuMovAnor ? "Sim" : "Não"}
+                    Convulsões ou movimentos anormais : {data.convulsoesOuMovAnor ? "Sim" : "Não"}
                 </p>
                 <p>
-                    Ausculta cardíaca alterada/Cianose : {caderneta.auscultaCardiaca ? "Sim" : "Não"}
+                    Ausculta cardíaca alterada/Cianose : {data.auscultaCardiaca ? "Sim" : "Não"}
                 </p>
             </h1>
             <h1>
-                Vacinas:
+                Exame Ocular:
                 <p>
-                    Hepatite B : {caderneta.hepatiteB ? "Sim" : "Não"}
+                    Abertura ocular normal : {data.aberturaOcular ? "Sim" : "Não"}
                 </p>
                 <p>
-                    BCG : {caderneta.bcg ? "Sim" : "Não"}
+                    Pupilas normais : {data.pupilasNormais ? "Sim" : "Não"}
+                </p>
+                <p>
+                    Estrabismo : {data.estrabismo ? "Sim" : "Não"}
                 </p>
             </h1>
-           
-           
+                 </div>: null}
+            
         </Container>
     );
 };
 
-export default Prontuario;
+export default RestoConsultas;
