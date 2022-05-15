@@ -1,8 +1,4 @@
 import React, { createContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useHistory } from "react-router";
-import { isAuthenticated, logout } from "../Services/auth";
 import useAuth from "./useAuth";
 
 

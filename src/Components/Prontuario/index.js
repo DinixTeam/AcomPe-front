@@ -39,7 +39,8 @@ const Prontuario = () => {
             <h1>
                 Sexo: {patient.sex}
             </h1>
-            <h1>
+            {caderneta ? <div>
+                {/* <h1>
                 Primeira consulta - {caderneta.date}
             </h1>
             <h1 style={{fontSize:'20px', marginBottom: '10px'}}>
@@ -105,7 +106,11 @@ const Prontuario = () => {
                 <p>
                     BCG : {caderneta.bcg ? "Sim" : "Não"}
                 </p>
-            </h1>
+            </h1> */}
+            </div> : <div>
+                    Sem Primeira Consulta
+                </div>}
+           
         </Container>
     );
 };

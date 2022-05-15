@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ButtonAdd, Container, Input, Paciente } from './style';
 import { useHistory } from "react-router-dom";
 import http from '../../Services/httpRequest';
-import { getId, idPatient } from '../../Services/auth';
+import { getId, getIdPatient, idPatient, removerPatient } from '../../Services/auth';
 
 const MenuClient = () => {
 
@@ -23,7 +23,11 @@ const MenuClient = () => {
       }, []);
 
       const clickPatient = (id) => {
-          idPatient(id)
+        
+      }
+
+      const click = () => {
+        history.push('/consultas');
       }
 
     return(
@@ -40,9 +44,15 @@ const MenuClient = () => {
                             justifyContent: 'center',
                             marginTop: '20px',
                             cursor: 'pointer'
+                            
                         }} 
-                            onClick={clickPatient(item._id)}>
-                            <Paciente>
+                        onClick={e => {
+                            removerPatient()
+                            idPatient(item._id)
+                            console.log(getIdPatient())
+                            window.location.reload()
+                        }} >
+                            <Paciente onClick={click}>
                                 <img />
                                 <h1>
                                     {item.name}
