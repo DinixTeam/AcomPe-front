@@ -62,7 +62,6 @@ const Consulta = () => {
                     </Select>
                 </FormControl>
             </div>
-<<<<<<< HEAD
             {/* {valuee === 10 ? <Prontuario /> : null} */}
             {valuee === 20 ? <Atendimento /> : null}
             <div style={{
@@ -74,9 +73,7 @@ const Consulta = () => {
                 marginRight: '10%'
             }}>
                 {/* {valuee === 10 ? <Prontuario /> : null} */}
-=======
             {valuee === 10 ? <Prontuario /> : null}
->>>>>>> bb857615176be17e49d0969342de5fa2321329bc
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',

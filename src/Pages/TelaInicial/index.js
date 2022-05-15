@@ -5,6 +5,7 @@ import Grafico from "../../Components/Graficos";
 import { Grid } from "./style";
 import Consulta from "../../Components/Consulta";
 import GraficoSelect from "../../Components/GraficoSelect";
+import Welcome from "../../Components/Welcome";
 
 const TelaInicial = () => {
     return(
@@ -13,7 +14,8 @@ const TelaInicial = () => {
             <MenuClient />
             {/* <GraficoSelect /> */}
             {/* <Grafico /> */}
-            <div>opaa</div>
+            {/* <div>opaa</div> */}
+            <Welcome />
          </Grid>
     )
 }
