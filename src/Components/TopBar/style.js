@@ -44,4 +44,7 @@ export const User = styled.div`
     border-radius: 50%;
     margin-right: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

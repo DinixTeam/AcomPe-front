@@ -10,6 +10,7 @@ import FormLabel from '@mui/material/FormLabel';
 import { useHistory } from "react-router-dom";
 import { getId, getIdPatient } from '../../../Services/auth';
 import http from '../../../Services/httpRequest';
+import swal from 'sweetalert';
 
 const Primeira = () => {
 
@@ -63,16 +64,22 @@ const Primeira = () => {
             pediatraID: getId(),
         }
         console.log(body)
+        if(body.comprimento !== '' && body.peso !== '' && body.perimetroCefalico !== ''){
             http
                 .post('/caderneta', body)
                 .then((res) => {
                     console.log(res)
                     console.log('go')
-                    history.push('/home');
+                    history.push('/consultas');
                 })
                 .catch((err) => {
                     console.log(err.response)
+                    swal(err.response.data.message)
                 })
+    
+            }else{
+                swal("Preencha todos os dados!")
+            }
 
     }
 

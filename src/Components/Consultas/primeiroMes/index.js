@@ -10,6 +10,7 @@ import moment from 'moment';
 import { useHistory } from "react-router-dom";
 import { getId, getIdPatient } from '../../../Services/auth';
 import http from '../../../Services/httpRequest';
+import swal from 'sweetalert';
 
 
 
@@ -91,17 +92,23 @@ const PrimeiroMes = () => {
             pediatraID: getId(),
         }
         console.log(body)
+        if(body.comprimento !== '' && body.peso !== '' && body.perimetroCefalico !== ''){
             http
-                .post("/atendimento", body)
-                .then((res) => {
-                    console.log(res)
-                    console.log('go')
-                    history.push('/home');
-                })
-                .catch((err) => {
-                    console.log(err.response)
-                })
+            .post("/atendimento", body)
+            .then((res) => {
+                console.log(res)
+                console.log('go')
+                history.push('/consultas');
+            })
+            .catch((err) => {
+                console.log(err.response)
+                swal(err.response.data.message)
+            })
 
+        }else{
+            swal("Preencha todos os dados!")
+        }
+           
     }
 
     const pezinho = check
@@ -172,14 +179,6 @@ const PrimeiroMes = () => {
         <Container>
             <Form>
                 <h1 style={{ marginBottom: '4px', color: 'white' }}>Adicionar Consulta</h1>
-                <Input>
-                    <h2> Data</h2>
-                    <input
-                        type='date'
-                        max={moment().format("YYYY-MM-DD")}
-                        style={{ marginLeft: '10px', width: '19.5vw' }}
-                    />
-                </Input>
                 <h1 style={{ color: '#D190EE', marginTop: '20px', marginRight: '300px' }}>Medidas </h1>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '20px', marginLeft: '210px', width: '550px' }}>
                     <Input>

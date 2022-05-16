@@ -25,6 +25,7 @@ const TopBar = () => {
             <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}}> 
                 <h2> {medico.username} </h2>
                 <User onClick={desloga}>
+                    x
                 </User>
             </div>
 

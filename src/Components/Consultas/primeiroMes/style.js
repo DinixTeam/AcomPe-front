@@ -10,9 +10,8 @@ flex-direction: column;
 justify-content: space-between;
 position: initial;    
 width: 100%;
-button {
-        font-size: 1vw;
-    }
+
+
 `;
 
 export const Form = styled.div`
