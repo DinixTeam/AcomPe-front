@@ -1,19 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Image, User } from "./style";
 import logo from '../../Assets/logo.png'
-import { isAuthenticated, logout } from "../../Services/auth";
+import { getId } from '../../Services/auth';
+import http from '../../Services/httpRequest';
 import { Context } from "../../Context/contextAPI";
 
 const TopBar = () => {
 
     const { desloga } = useContext(Context);
 
-    return(
+    const [medico, setMedico] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const response = await http.get(`/pediatra/${getId()}`);
+            console.log(response.data);
+            setMedico(response.data);
+        })();
+    }, []);
+
+    return (
         <Container>
-            <Image src={logo}/>
-            <User onClick={desloga}>
-               
-            </User>
+            <Image src={logo} />
+            <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row'}}> 
+                <h2> {medico.username} </h2>
+                <User onClick={desloga}>
+                </User>
+            </div>
+
         </Container>
     )
 }

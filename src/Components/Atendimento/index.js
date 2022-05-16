@@ -7,34 +7,34 @@ import useSWR from 'swr';
 
 const useFetch = (url) => {
     const { data, error, mutate } = useSWR(url, async url => {
-      const response = await http.get(url);
-  
-      return response.data;
+        const response = await http.get(url);
+
+        return response.data;
     })
-  
+
     return { data, error, mutate }
-  
-  }
-  
+
+}
+
 
 const Atendimento = () => {
-    
 
-      const [patient, setPatient] = useState([]);
 
-    useEffect(() => { 
+    const [patient, setPatient] = useState([]);
+
+    useEffect(() => {
         (async () => {
-          const response = await http.get(`/patient/${getIdPatient()}`); 
-          console.log(response.data);
-          setPatient(response.data);
+            const response = await http.get(`/patient/${getIdPatient()}`);
+            console.log(response.data);
+            setPatient(response.data);
         })();
-      }, []);
+    }, []);
 
-      const { data, mutate } = useFetch(`/atendimento/frompatient/${getIdPatient()}`);
+    const { data, mutate } = useFetch(`/atendimento/frompatient/${getIdPatient()}`);
 
-      if (!data) return null;
+    if (!data) return null;
 
-    return(
+    return (
 
         <Container>
             <h1>
@@ -52,8 +52,8 @@ const Atendimento = () => {
             <h1>
                 Consulta de 1 mês - {data.date}
             </h1>
-            <h1 style={{fontSize:'20px', marginBottom: '10px'}}>
-                Medidas: 
+            <h1 style={{ fontSize: '20px', marginBottom: '10px' }}>
+                Medidas:
 
                 <p>
                     Perímetro Cefálico (cm): {data.perimetroCefalico} cm
@@ -66,22 +66,22 @@ const Atendimento = () => {
                 </p>
             </h1>
             <h1>
-            Aleitamento/alimentação:
+                Aleitamento/alimentação:
                 <p>
                     Leite materno exclusivo (LME) : {data.leiteLME ? "Sim" : "Não"}
                 </p>
                 <p>
-                Leite materno e leite artificial (LM+LA) : {data.leiteLMLA ? "Sim" : "Não"}
+                    Leite materno e leite artificial (LM+LA) : {data.leiteLMLA ? "Sim" : "Não"}
                 </p>
                 <p>
-                Dificuldades para amamentar ? : {data.dificuldadeAmamentar ? "Sim" : "Não"}
+                    Dificuldades para amamentar ? : {data.dificuldadeAmamentar ? "Sim" : "Não"}
                 </p>
                 <p>
-                Parou de amamentar ? : {data.parouAmamentar ? "Sim" : "Não"}
+                    Parou de amamentar ? : {data.parouAmamentar ? "Sim" : "Não"}
                 </p>
             </h1>
             <h1>
-            Sinais de alerta:
+                Sinais de alerta:
                 <p>
                     Coto umbilical infectado : {data.cotoUmbilical ? "Sim" : "Não"}
                 </p>

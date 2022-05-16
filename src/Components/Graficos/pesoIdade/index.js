@@ -1,17 +1,29 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "react-google-charts";
-
-
+import { getIdPatient } from '../../../Services/auth';
+import http from '../../../Services/httpRequest';
 const PesoIdade = () => {
 
-  const data = [
-    ['idade', 'peso'],
-    ['2', 4.4],
-    ['4', 5.2],
-    ['6', 5.2],
-    ['8', 5.8],
-    ['10', 5.9],
-  ];
+  // const data = [
+  //   ['idade', 'peso'],
+  //   ['2', 4.4],
+  //   ['4', 5.2],
+  //   ['6', 5.2],
+  //   ['8', 5.8],
+  //   ['10', 5.9],
+  // ];
+
+  const [data, setgrafico] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await http.get(`/graphidadepeso/${getIdPatient()}`);
+      console.log(response.data);
+      setgrafico(response.data);
+    })();
+  }, []);
+
+
 
   return (
     <div className="container mt-5">

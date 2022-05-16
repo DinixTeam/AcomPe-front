@@ -10,6 +10,22 @@ export const Container = styled.div`
     border-bottom: 2px solid #7ea1ed;
 
     width: 100%;
+
+    h2 {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        margin-left:600px;
+        margin-top: 8px;
+        margin-right: 8px;
+        font-family: 'Quicksand', 'Poppins',sans-serif;
+    }
+
+    div {
+        display: 'flex';
+        flex-direction: 'row';
+        justify-content: 'space-between'
+    }
 `;
 
 
@@ -17,6 +33,8 @@ export const Container = styled.div`
 export const Image = styled.img`
     width: 200px;
     margin-top: 5px;
+
+ 
 `;
 
 export const User = styled.div`
