@@ -4,7 +4,7 @@ export const Container = styled.div`
     grid-area: 'CS';
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #7698DB;
     height: 100%;
-
+    overflow-y: scroll;
   
 `;
 

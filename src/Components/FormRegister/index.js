@@ -4,12 +4,13 @@ import logo from '../../Assets/logo.png'
 import http from '../../Services/httpRequest'
 
 import { useHistory } from "react-router-dom";
+import swal from 'sweetalert';
 
 const FormLogin = () => {
 
-    const [email, setEmail] = useState();
-    const [userName, setUserName] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
 
     const history = useHistory();
@@ -36,9 +37,11 @@ const FormLogin = () => {
             })
             .catch((err) => {
                 console.log(err.response)
+                swal(err.response.data.message);
             })
         } else {
             console.log('erro')
+            swal('Preencha todos os dados!');
         }
         
     }

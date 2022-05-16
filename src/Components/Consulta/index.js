@@ -30,7 +30,7 @@ const useFetch = (url) => {
 
 
 const Consulta = () => {
-    const [valuee, setValuee] = useState(0);
+    const [valuee, setValuee] = useState(1);
     const history = useHistory();
     const [consu, setConsu] = useState([]);
 

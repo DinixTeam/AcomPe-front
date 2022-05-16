@@ -6,10 +6,11 @@ import { useHistory } from "react-router-dom";
 import http from '../../Services/httpRequest';
 import { getId, idUser, login, logout } from '../../Services/auth';
 import  { Context } from "../../Context/contextAPI";
+import swal from 'sweetalert';
 
 const FormLogin = () => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     var { loga, auth, desloga }   = useContext(Context);
 
     const history = useHistory();
@@ -25,7 +26,7 @@ const FormLogin = () => {
             password: password
         }
         console.log(body)
-        if( body.email !== "" && body.password !== ''){
+        if( body.emailOrCPF !== "" && body.password !== ''){
             http
             .post('/login', body)
             .then((res) => {
@@ -41,9 +42,12 @@ const FormLogin = () => {
             })
             .catch((err) => {
                 console.log(err.response)
+                swal(err.response.data.message);
+
             })
         } else {
             console.log('erro')
+            swal('Preencha todos os dados!');
         }
     }
     return(

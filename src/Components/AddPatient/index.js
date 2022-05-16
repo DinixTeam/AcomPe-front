@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { style } from '@mui/system';
 import http from '../../Services/httpRequest';
 import { getId } from '../../Services/auth';
+import swal from 'sweetalert';
 
 const AddPacient = () => {
 
@@ -60,9 +61,11 @@ const AddPacient = () => {
                 })
                 .catch((err) => {
                     console.log(err.response)
+                     swal(err.response.data.message);
                 })
         } else {
             console.log('erro')
+             swal('Preencha todos os dados!');
         }
 
     }
