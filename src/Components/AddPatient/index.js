@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Image, Button, Input, Container } from './style';
+import { Form, Image, ButtonAdd, Input, Container } from './style';
 import logo from '../../Assets/logo.png'
 import moment from 'moment';
 
@@ -17,7 +17,7 @@ const AddPacient = () => {
         history.push('/addPaciente');
     }
     const linkHome = () => {
-        history.push('/');
+        history.push('/Home');
     }
     // const sexos = [
     //     { label: 'machu', value: 'Machu' },
@@ -61,11 +61,11 @@ const AddPacient = () => {
                 })
                 .catch((err) => {
                     console.log(err.response)
-                     swal(err.response.data.message);
+                    swal(err.response.data.message);
                 })
         } else {
             console.log('erro')
-             swal('Preencha todos os dados!');
+            swal('Preencha todos os dados!');
         }
 
     }
@@ -148,10 +148,16 @@ const AddPacient = () => {
                         value={telefone}
                     />
                 </Input>
-                <Button
+                {/* <Button
                     onClick={register} style={{ color: 'white', fontSize: '2.5vw' }}>+
-                </Button>
+                </Button> */}
             </Form>
+            <ButtonAdd onClick={linkHome} style={{ marginLeft: '480px' }}>
+                Voltar
+            </ButtonAdd>
+            <ButtonAdd onClick={register} style={{ marginLeft: '53%', marginRight: '10px' }}>
+                Confirmar
+            </ButtonAdd>
         </Container>
     );
 }
