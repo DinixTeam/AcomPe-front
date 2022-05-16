@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
     position: initial;    
     width: 100%;
-
+    
    
 `;
 

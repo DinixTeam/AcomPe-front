@@ -9,6 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useHistory } from "react-router-dom";
 import { getId, getIdPatient } from '../../../Services/auth';
 import http from '../../../Services/httpRequest';
+import swal from 'sweetalert';
 
 
 
@@ -63,17 +64,22 @@ const ConsultasRestantes = () => {
             pediatraID: getId(),
         }
         console.log(body)
+        if(body.comprimento !== '' && body.peso !== '' && body.perimetroCefalico !== ''){
             http
                 .post('/consulta' , body)
                 .then((res) => {
                     console.log(res)
                     console.log('go')
-                    history.push('/home');
+                    history.push('/consultas');
                 })
                 .catch((err) => {
                     console.log(err.response)
+                    swal(err.response.data.message)
                 })
-
+    
+            }else{
+                swal("Preencha todos os dados!")
+            }
     }
 
     return (
