@@ -100,10 +100,10 @@ const Consulta = () => {
                     marginLeft: '10%',
                     marginRight: '10%'
                 }}>
-                    <ButtonAdd onClick={linkConsulta}>
+                    <ButtonAdd onClick={linkConsulta} style={{marginLeft: '570px'}}>
                         Adicionar Consulta
                     </ButtonAdd>
-                    <ButtonAdd onClick={linkGraficos} style={{marginLeft: '40%', marginRight: '10px'}}>
+                    <ButtonAdd onClick={linkGraficos} style={{marginLeft: '56%', marginRight: '10px'}}>
                         Ver Graficos
                     </ButtonAdd>
                 </div>

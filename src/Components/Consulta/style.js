@@ -25,8 +25,8 @@ export const ButtonAdd = styled.div`
     align-items: center;
     text-align: center;
     align-self: flex-end;
-    width: 17%;
-    margin-right: 1%;
+    width: 13%;
+    margin-right: 30%;
     cursor: pointer;
     :hover{
       transition: all linear 0.3s;
